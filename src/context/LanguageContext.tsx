@@ -9,11 +9,6 @@ interface LanguageContextType {
   t: (key: string, section: string) => string;
 }
 
-interface TranslatedContent {
-  en: string;
-  tr: string;
-}
-
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
@@ -21,14 +16,39 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   function t(key: string, section: string): string {
     try {
-      const sectionContent = content[section as keyof typeof content];
-      if (sectionContent && typeof sectionContent === 'object') {
-        const keyContent = sectionContent[key as keyof typeof sectionContent];
-        if (keyContent && typeof keyContent === 'object' && 'en' in keyContent) {
-          const translatedContent = keyContent as TranslatedContent;
-          return translatedContent[language] || translatedContent.en;
+      // Split the section path (e.g., 'contact.form' -> ['contact', 'form'])
+      const sectionPath = section.split('.');
+      
+      // Navigate through the content object using the section path
+      let currentSection: any = content;
+      for (const pathPart of sectionPath) {
+        if (currentSection[pathPart]) {
+          currentSection = currentSection[pathPart];
+        } else {
+          return key;
         }
       }
+
+      // Split the key path (e.g., 'name.label' -> ['name', 'label'])
+      const keyPath = key.split('.');
+      
+      // Navigate through the section using the key path
+      let currentValue: any = currentSection;
+      for (const pathPart of keyPath) {
+        if (currentValue[pathPart]) {
+          currentValue = currentValue[pathPart];
+        } else {
+          return key;
+        }
+      }
+
+      // Return the translation if it exists, otherwise fallback to English or the key
+      if (currentValue[language]) {
+        return currentValue[language];
+      } else if (currentValue.en) {
+        return currentValue.en;
+      }
+      
       return key;
     } catch (error) {
       console.error('Translation error:', error);

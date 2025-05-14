@@ -4,7 +4,7 @@ export const content = {
       en: 'Hi, I\'m',
       tr: 'Merhaba, Ben'
     },
-    name: 'Your Name',
+    name: 'M. Caner Battaloğlu',
     title: {
       en: 'Full-Stack Developer',
       tr: 'Full-Stack Geliştirici'
@@ -95,6 +95,29 @@ export const content = {
       en: 'Have a project in mind or want to discuss opportunities? Feel free to reach out!',
       tr: 'Aklınızda bir proje mi var veya fırsatları tartışmak mı istiyorsunuz? Bana ulaşmaktan çekinmeyin!'
     },
+    info: {
+      location: {
+        title: {
+          en: 'Location',
+          tr: 'Konum'
+        },
+        value: 'Istanbul, Turkey'
+      },
+      email: {
+        title: {
+          en: 'Email',
+          tr: 'E-posta'
+        },
+        value: 'battalogluwebservices@gmail.com'
+      },
+      phone: {
+        title: {
+          en: 'Phone',
+          tr: 'Telefon'
+        },
+        value: '+90 534 481 96 09'
+      }
+    },
     form: {
       name: {
         label: {
@@ -129,13 +152,25 @@ export const content = {
       submit: {
         en: 'Send Message',
         tr: 'Mesaj Gönder'
+      },
+      sending: {
+        en: 'Sending...',
+        tr: 'Gönderiliyor...'
+      },
+      success: {
+        en: 'Message Sent!',
+        tr: 'Mesaj Gönderildi!'
+      },
+      error: {
+        en: 'Error Sending Message',
+        tr: 'Mesaj Gönderilemedi'
       }
     }
   },
   footer: {
     copyright: {
-      en: '© 2025 Your Name. All rights reserved.',
-      tr: '© 2025 Adınız. Tüm hakları saklıdır.'
+      en: '© 2025 M. Caner Battaloğlu. All rights reserved.',
+      tr: '© 2025 M. Caner Battaloğlu. Tüm hakları saklıdır.'
     }
   }
 };

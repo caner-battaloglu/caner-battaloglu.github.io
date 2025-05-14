@@ -41,22 +41,18 @@ export const navItems: NavItem[] = [
 export const socialLinks: SocialLink[] = [
   {
     platform: 'GitHub',
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/caner-battaloglu',
     icon: 'Github'
   },
   {
     platform: 'LinkedIn',
-    url: 'https://linkedin.com/in/yourusername',
+    url: 'https://linkedin.com/in/caner-battaloglu',
     icon: 'Linkedin'
   },
-  {
-    platform: 'Twitter',
-    url: 'https://twitter.com/yourusername',
-    icon: 'Twitter'
-  },
+
   {
     platform: 'Email',
-    url: 'mailto:your.email@example.com',
+    url: 'mailto:battalogluwebservices@gmail.com',
     icon: 'Mail'
   }
 ];
