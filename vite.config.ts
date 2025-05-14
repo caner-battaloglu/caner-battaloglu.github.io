@@ -1,7 +1,10 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react'; // or your framework plugin
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/my-portfolio-website/',    // <-- ensure trailing slash
+  base: '/',               // root-relative URLs
+  build: {
+    outDir: 'docs',        // build output goes to /docs
+  },
   plugins: [react()],
-});
+})
